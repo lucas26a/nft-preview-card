@@ -1,0 +1,146 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+  --active: hsl(178, 100%, 50%);
+  --white: hsl(0, 0%, 100%);
+  --text: hsl(215, 51%, 70%);
+  --br: 12px;
+  --transition: all 150ms ease;
+}
+
+.attribution { 
+  font-size: 11px; 
+  text-align: center;
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%);
+  transition: var(--transition);
+}
+.attribution a:hover {
+  color: var(--active);
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--main-bg);
+  font-size: 18px;
+  padding-top: 10px;
+  padding-inline: .5rem;
+}
+.card {
+  flex-direction: column;
+  max-width: 350px;
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-inline: auto;
+  height: 90%;
+  color: var(--text);
+  margin-top: 5%;
+}
+.card__image {
+  margin-block: 0 1rem;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  width: 100%;
+  background-image: url("./images/image-equilibrium.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: var(--br);
+  background-color: var(--active);
+  overflow: hidden;
+  border: 2px solid var(--card-bg);
+}
+.card__image::after,
+.card__image::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transition: var(--transition);
+}
+.card__image::before {
+  background-color: var(--active);
+  opacity: 0;
+}
+.card__image::after {
+  background-image: url("./images/icon-view.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+}
+.card__image:hover::before {
+  opacity: .5;
+}
+.card__image:hover::after {
+  opacity: 1;
+}
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card__title {
+  color: var(--white);
+  font-weight: 600;
+  transition: color 150ms ease;
+  cursor: pointer;
+}
+.card__text {
+  font-weight: 300;
+}
+.card__title:hover {
+  color: var(--active);
+}
+.card__details {
+  display: flex;
+  justify-content: space-between;
+}
+.card__details .details__eth {
+  color: var(--active);
+}
+.details__eth::before, .details__time::before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin-right: 3px;
+  height: 1rem;
+  width: 1rem;
+}
+.details__eth::before {
+  background-image: url("./images/icon-ethereum.svg");
+}
+.details__time::before {
+  background-image: url("./images/icon-clock.svg");
+}
+.card__line {
+  color: var(--line);
+}
+.card__creator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+.card__creator .creator__avatar {
+  width: 36px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.card__creator .creator__name {
+  color: var(--white)
+}
+.card__creator .creator__name:hover {
+  cursor: pointer;
+  color: var(--active);
+}
