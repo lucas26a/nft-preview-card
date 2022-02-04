@@ -32,6 +32,7 @@ body {
   font-size: 18px;
   padding-top: 10px;
   padding-inline: .5rem;
+  height: 100vh;
 }
 .card {
   flex-direction: column;
@@ -40,9 +41,9 @@ body {
   padding: 1.5rem;
   border-radius: 12px;
   margin-inline: auto;
-  height: 90%;
+  height: auto;
   color: var(--text);
-  margin-top: 5%;
+  margin-top: 1%;
 }
 .card__image {
   margin-block: 0 1rem;
